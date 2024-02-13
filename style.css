@@ -1,0 +1,200 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #F7F6FB;
+}
+.navbar{
+    background-color: #FFFFFF;
+}
+.container{
+    padding-left: 50px;
+    padding-right: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+}
+
+.btn-default{
+    background-color: #E84949;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+/* 
+  Begin Navbar
+  ================================================
+*/
+.navbar .container .brand{
+    padding: 0.5rem;
+}
+.navbar .container .show-menu{
+    margin: auto;
+    display: none;
+    padding: 20px;
+    border: none;
+    background-color: white;
+    font-size: 30px;
+    color: #E84949;
+}
+
+.navbar .container .action{
+    padding: 14px;
+
+}
+.navbar .container .action .btn-default{
+    float: inline-end;
+    margin: auto;
+}
+
+.navbar .container .navbar-body{
+    float: inline-end;
+    padding: 17px;
+}
+.navbar .container .navbar-body .navbar-elements{
+    padding: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar .container .navbar-body .navbar-elements .nav-item a{
+    color: black;
+    font-size: 18px;
+}
+.navbar .container .navbar-body .navbar-elements .nav-item a:hover{
+    color:#E84949;
+}
+.navbar .container .navbar-body .navbar-elements .active i{
+    color:#E84949;
+}
+.navbar .container .navbar-body .navbar-elements .active a{
+    color:#E84949;
+}
+
+.navbar .container .navbar-body .navbar-elements .nav-item{
+    display: inline;
+    text-decoration: none;
+}
+.navbar .container .navbar-body .navbar-elements .nav-item a{
+    text-decoration: none;
+}
+/* 
+  End Navbar
+  ================================================
+*/
+
+
+/* 
+  Begin About Me
+  ================================================
+*/
+
+.section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 70px;
+}
+.section .column-1{
+    display: flex;
+    place-items: center;
+}
+.section .column-1 .content h1{
+    margin-bottom: 30px;
+}
+.section .column-1 .content p{
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+.section .column-1 span{
+    font-weight: 100;
+}
+.section .column-2 .profile .picture img{
+    float: inline-end;
+}
+/* 
+  End About Me
+  ================================================
+*/
+
+
+/* 
+  Begin Skills
+  ================================================
+*/
+.section .column-1 .skills{
+    display: flex;
+    /* justify-content: space-between; */
+
+}
+.section .column-1 .skills .skill-group{
+    text-align: center;
+    margin-left: 42px;
+}
+.section .column-1 .content .skill-group span{
+    display: block;
+    /* text-align: center; */
+}
+/* 
+  End Skills
+  ================================================
+*/
+
+
+@media screen and (max-width: 991px){
+    .container{
+        padding-left: 0;
+        padding-right: 0;
+        grid-template-columns: auto auto;
+
+    }
+    /* 
+        Begin Navbar
+        ================================================
+    */
+    .navbar .container .brand{
+        display: none;
+    }
+    .navbar .container .show-menu{
+        display: block;
+        margin-left: 20px;
+    }
+    .navbar .container .navbar-body{
+        display: none;
+    }
+    .navbar .container .action{
+        align-items: end;
+    }
+
+    /* 
+        End Navbar
+        ================================================
+        */
+
+
+    /* 
+        Start About Me
+        ================================================
+    */
+    .section{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .section .column-2{
+        order: -1;
+    }
+    .section .column-2 .profile .picture{
+        display: flex;
+    }
+    .section .column-2 .profile .picture img{
+        margin: auto;
+    }
+    .section .column-1 .content{
+        margin-top: 50px;
+    }
+}
