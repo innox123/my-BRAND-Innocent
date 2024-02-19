@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    /* background-color: #F7F6FB; */
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 13px;
+}
+.main{
+    display: flex;
+}
+.main .sidenav{
+    width: 300px;
+    height: 650px;
+    background-color: #343d68;
+}
+.main .right{
+    background-color: white;
+    height: 650px;
+    width: 1100px;
+}
+.main .sidenav .brand{
+    display: flex;
+    height: 70px;
+    background-color: #F7F6FB;
+}
+.main .sidenav .brand a{
+    margin: auto;
+}
+.main .sidenav .menu{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #F7F6FB;
+}
+
+.main .sidenav .menu .menu-item{
+    /* text-align: center; */
+    border-radius: 10px;
+    /* background-color: blue; */
+    width: 60%;
+    margin: auto;
+    padding: 13px;
+    border: 1px solid white;
+    display: flex;
+    /* gap: 0.7rem; */
+    /* align-items: center; */
+    font-size: 16px;
+    
+}
+.main .sidenav .menu .menu-item .nav-item a{
+    color: #F7F6FB;
+    text-decoration: none;
+}
+.main .sidenav .menu .active{
+    border: 1px solid white;
+    background-color: white;
+    color: #343d68;
+}
+.main .sidenav .menu .active .nav-item a{
+    color: #343d68;
+    font-weight: 700;
+}
+.main .sidenav .menu .menu-item .nav-item{
+    margin-left: 12%;
+}
+/* Header */
+.right .header{
+    height: 70px;
+    background-color: #F7F6FB;
+    display: flex;
+    align-items: center;
+}
+.right .header .show-menu{
+    margin-left: 20px;
+    /* border: 1px solid green; */
+    border: none;
+    font-size: 30px;
+}
+.right .content{
+    padding: 30px
+}
+.right .content .stats{
+    display: flex;
+    justify-content: space-around;
+}
+.right .content .stats .card{
+    height: 105px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #343d68;
+    display: flex;
+    align-items: center;
+}
+.right .content .stats .card .card-content{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    margin: auto;
+}
+.right .content .stats .card .card-content i{
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 200px;
+    color: #343d68;
+    font-size: 30px;
+}
+.right .content .stats .card .card-content .info{
+    align-items: start;
+}
+.right .content .stats .card .card-content .info p{
+    font-size: 20px;
+}
+.right .content .stats .card .card-content .info span{
+    font-weight: 900;
+    font-size: 20px;
+}
