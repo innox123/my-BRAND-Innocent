@@ -341,10 +341,14 @@ button:hover{
 .footer{
     display: flex;
     align-items: center;
-    padding: 100px;
+    /* padding: 0px 100px 100px 0px; */
+    /* padding-top: 100px; */
+    /* padding-bottom: 100px; */
+    height: 300px;
     background-image: url('assets/images/footerwave.png');
-    background-size: center;
+    background-size: cover;
     background-repeat: no-repeat;
+    width: 100%;
 }
 .footer .content{
     display: flex;
@@ -354,6 +358,10 @@ button:hover{
     font-size: 15px;
 
 }
+/* .footer .content .social{
+    border: 1px solid white;
+    width: 100%;
+} */
 .footer .content .social p{
     margin-bottom: 34px;
 }
@@ -815,8 +823,12 @@ button:hover{
 
     /* Footer */
     .footer{
-        display: block;
+        /* display: block; */
+        align-items: center;
+        width: 96%;
+        padding: 10px;
         background-size: cover;
+        /* width */
     }
     .footer .content{
         display: block;
