@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tiny.cloud/1/9lf84e7ni5cgo1gbhivilb25yw5utapttq00d1kk3r5eg539/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link> 
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Blogs</title>
 </head>
 <body>
@@ -60,7 +61,7 @@
                           <td>
                             <div class="blog-actions">
                                 <a href=""><i class="fa fa-edit"></i></a>
-                                <a href=""><i class="fa fa-trash" id="delete"></i></a>
+                                <a onclick="delete_btn()"><i class="fa fa-trash" id="delete"></i></a>
                             </div>
                           </td>
                         </tr>
@@ -83,7 +84,7 @@
                           <td>
                             <div class="blog-actions">
                                 <a href=""><i class="fa fa-edit"></i></a>
-                                <a href=""><i class="fa fa-trash" id="delete"></i></a>
+                                <a onclick="delete_btn()"><i class="fa fa-trash" id="delete"></i></a>
                             </div>
                           </td>
                         </tr>
@@ -122,9 +123,16 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
         <script>
           function delete_btn(){
-            swal({
-                buttons: ["Stop", "Do it!"],
-              });
+            Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: "Deleted successfully",
+              // showConfirmButton: true,
+              buttons: {
+                cancel: true,
+                confirm: true,
+              },
+            })
           }
         </script> 
     </body>
