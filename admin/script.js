@@ -21,7 +21,7 @@ window.addEventListener('resize', function() {
         sidenav.style.display='block';
         sidenav.style.position='relative';
         sidenav.style.height='auto';
-        sidenav.style.height='650px';
+        sidenav.style.height='100vh';
 
     }
     if (window.innerWidth < 991) {

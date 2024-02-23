@@ -22,7 +22,8 @@ body{
 }
 .main .sidenav{
     width: 300px;
-    height: 650px;
+    height: 100vh;
+    /* position: fixed; */
     /* height: auto; */
     background-color: #343d68;
     display: block;
@@ -31,7 +32,7 @@ body{
 .main .right{
     background-color: white;
     /* height: 650px; */
-    width: 1100px;
+    width: 100%;
 }
 .main .sidenav .brand{
     display: flex;
