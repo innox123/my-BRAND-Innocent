@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tiny.cloud/1/9lf84e7ni5cgo1gbhivilb25yw5utapttq00d1kk3r5eg539/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <title>Messages</title>
+</head>
+<body>
+    <div class="main">
+        <div class="sidenav" id="sidenav">
+            <!-- Sidenav here -->
+        </div>
+        <div class="right">
+            <div id="header" class="header">
+                <button class="show-menu" id="show_menu_btn" onclick="shownav()">
+                    <i class="fa fa-bars" id="show_menu_icon"></i>
+                </button>
+            </div>
+                <!-- Header content here -->
+            <div class="content">
+                <!-- Main Content here -->
+                <h1>Messages</h1>
+                <div class="table-div">
+                    <table>
+                        <tr>
+                          <th>User</th>
+                          <th>Blogs</th>
+                          <th>Comment</th>
+                          <th>Likes</th>
+                          <th>Date</th>
+                          <th>Action</th>
+                        </tr>
+                        <tr>
+                          <td>
+                            Eric GATABAZI
+                          </td>
+                          <td>
+                            10 Tips To Use Screen
+                          </td>
+                          <td>
+                            I don't like this
+                          </td>
+                          <td>
+                            453
+                          </td>
+                          <td>
+                            12/12/2023
+                          </td>
+                          <td>
+                            <div class="blog-actions">
+                                <a href=""><i class="fa fa-trash" id="delete"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Eric GATABAZI
+                          </td>
+                          <td>
+                            10 Tips To Use Screen
+                          </td>
+                          <td>
+                            I don't like this
+                          </td>
+                          <td>
+                            453
+                          </td>
+                          <td>
+                            12/12/2023
+                          </td>
+                          <td>
+                            <div class="blog-actions">
+                                <a href=""><i class="fa fa-trash" id="delete"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Eric GATABAZI
+                          </td>
+                          <td>
+                            10 Tips To Use Screen
+                          </td>
+                          <td>
+                            I don't like this
+                          </td>
+                          <td>
+                            453
+                          </td>
+                          <td>
+                            12/12/2023
+                          </td>
+                          <td>
+                            <div class="blog-actions">
+                                <a href=""><i class="fa fa-trash" id="delete"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Eric GATABAZI
+                          </td>
+                          <td>
+                            10 Tips To Use Screen
+                          </td>
+                          <td>
+                            I don't like this
+                          </td>
+                          <td>
+                            453
+                          </td>
+                          <td>
+                            12/12/2023
+                          </td>
+                          <td>
+                            <div class="blog-actions">
+                                <a href=""><i class="fa fa-trash" id="delete"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="contentloader.js"></script>
+    <script src="script.js"></script>
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+          mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+          ],
+          ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+      </script>
+</body>
+</html>

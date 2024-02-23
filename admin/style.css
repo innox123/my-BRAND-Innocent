@@ -1,0 +1,243 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    /* background-color: #F7F6FB; */
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 13px;
+}
+.btn-default{
+    background-color: #E84949;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+.main{
+    display: flex;
+}
+.main .sidenav{
+    width: 300px;
+    height: 650px;
+    /* height: auto; */
+    background-color: #343d68;
+    display: block;
+    /* position: fixed; */
+}
+.main .right{
+    background-color: white;
+    /* height: 650px; */
+    width: 1100px;
+}
+.main .sidenav .brand{
+    display: flex;
+    height: 70px;
+    background-color: #F7F6FB;
+}
+.main .sidenav .brand a{
+    margin: auto;
+}
+.main .sidenav .menu{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #F7F6FB;
+}
+
+.main .sidenav .menu .menu-item{
+    /* text-align: center; */
+    border-radius: 10px;
+    /* background-color: blue; */
+    width: 60%;
+    margin: auto;
+    padding: 13px;
+    border: 1px solid white;
+    display: flex;
+    /* gap: 0.7rem; */
+    /* align-items: center; */
+    font-size: 16px;
+    
+}
+.main .sidenav .menu .menu-item .nav-item a{
+    color: #F7F6FB;
+    text-decoration: none;
+}
+.main .sidenav .menu .active{
+    border: 1px solid white;
+    background-color: white;
+    color: #343d68;
+}
+.main .sidenav .menu .active .nav-item a{
+    color: #343d68;
+    font-weight: 700;
+}
+.main .sidenav .menu .menu-item .nav-item{
+    margin-left: 12%;
+}
+/* Header */
+.right .header{
+    height: 70px;
+    background-color: #F7F6FB;
+    display: flex;
+    align-items: center;
+    top: 0;
+    position: sticky;
+}
+.right .header .show-menu{
+    margin-left: 20px;
+    display: none;
+    /* border: 1px solid green; */
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+.right .content{
+    padding: 30px
+}
+.right .content .stats{
+    display: flex;
+    justify-content: space-around;
+}
+.right .content .stats .card{
+    height: 105px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #343d68;
+    display: flex;
+    align-items: center;
+}
+.right .content .stats .card .card-content{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    margin: auto;
+}
+.right .content .stats .card .card-content i{
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 200px;
+    color: #343d68;
+    font-size: 30px;
+}
+.right .content .stats .card .card-content .info{
+    align-items: start;
+}
+.right .content .stats .card .card-content .info p{
+    font-size: 20px;
+}
+.right .content .stats .card .card-content .info span{
+    font-weight: 900;
+    font-size: 20px;
+}
+
+
+/* Blogs */
+.right .content h1{
+    margin-bottom: 30px;
+}
+.right .content .top-actions{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.right .content .top-actions input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(71, 71, 71);
+}
+.right .content .table-div table{
+    width: 100%;
+    /* border: 1px solid green; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.right .content .table-div table tr th{
+    text-align: start;
+}
+.right .content .table-div table tr td{
+    padding: 10px 0px;
+    text-align: start;
+    border-bottom: 1px solid black;
+}
+.right .content .table-div table tr td .blog-actions{
+    display: flex;
+    justify-content: space-around;
+}
+.right .content .table-div table tr td .blog-actions i{
+    font-size: 20px;
+}
+.right .content .table-div table tr td .blog-actions #delete{
+    color: #E84949;
+}
+.right .content .table-div table tr img{
+    height: 40px;
+    border-radius: 50px;
+}
+
+/* Add Blog */
+.right .content .form-div form{
+    /* border: 1px solid black; */
+    width: 60%;
+    /* width: 30%; */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* align-items: center; */
+    margin: auto;
+    /* margin: auto; */
+}
+.right .content .form-div form .input-group{
+    display: flex;
+    flex-direction: column;
+    /* align-items: start; */
+    /* margin-right: auto; */
+    /* border: 1px solid green; */
+    gap: 0.5rem;
+    /* margin: auto; */
+}
+.right .content .form-div form .input-group input{
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+}
+.right .content .form-div form .input-group textarea{
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    
+}
+@media screen and (max-width: 991px){
+    .main .sidenav{
+        display: none;
+    }
+
+    .main .right{
+        width: 100%;
+    }
+    .right .header .show-menu{
+        display: block;
+    }
+    .right .content{
+        display: flex;
+        flex-direction: column;
+    }
+    .right .content .stats{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .right .content .stats .card{
+        width: 100%;
+    }
+    /* Add blog */
+    .right .content .form-div form{
+        width: 100%;
+    }
+}

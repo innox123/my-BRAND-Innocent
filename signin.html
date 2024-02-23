@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <title>Sign Page</title>
+    </head>
+    <body>
+        <div class="signin-content">
+            <!-- <div class="brand"> -->
+                <a href="index.html"><img src="assets/images/logo.png"></a>
+            <!-- </div> -->
+            <div class="column-2">
+                <div class="signin">
+                    <h3>Sign in</h3>
+                    <form action="" id="loginForm">
+                        <div class="input-group">
+                            <label for="">Username</label>
+                            <input type="text" id="username">
+                            <div id="usernameError" class="error-message"></div>
+                        </div>
+                        <div class="input-group">
+                            <label for="">Password</label>
+                            <input type="password" id="password">
+                            <div id="passwordError" class="error-message"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <button>Sign In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="validate.js"></script>
+        <script>
+            function containsSpecialCharacters(str) {
+                var regex = /[^a-zA-Z0-9\s]/;
+                return regex.test(str);
+            }
+
+            function containsCapitalLetter(str) {
+                var regex = /[A-Z]/;
+                return regex.test(str);
+            }
+
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                var username = document.getElementById('username').value.trim();
+                var password = document.getElementById('password').value.trim();
+                var isValid = true;
+
+                // Validate username
+                if (username === '') {
+                    document.getElementById('usernameError').textContent = 'Username is required';
+                    isValid = false;
+                }
+                else if(username.length < 6){
+                    document.getElementById('usernameError').textContent = 'Username must be greater than 6 characters';
+                    isValid = false;
+                }
+                
+                else{
+                    document.getElementById('usernameError').textContent = '';
+
+                }
+
+                // Validate password
+                if (password === '') {
+                    document.getElementById('passwordError').textContent = 'Password is required';
+                    isValid = false;
+                }
+                else if(password.length < 8){
+                    document.getElementById('passwordError').textContent = 'Password must be greater than 8 characters';
+                    isValid = false;
+                }
+                else if(!containsSpecialCharacters(password)) {
+                    document.getElementById('passwordError').textContent = 'Password must contain at least one special character';
+                    isValid = false;
+                }
+                else if(!containsCapitalLetter(password)) {
+                    document.getElementById('passwordError').textContent = 'Password must contain at least one capital letter';
+                    isValid = false;
+                }
+                else {
+                    document.getElementById('passwordError').textContent = '';
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+
+        </script>
+    </body>
+</html>
