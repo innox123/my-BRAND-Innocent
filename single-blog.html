@@ -14,34 +14,55 @@
     <div class="navbar">
         <div class="container">
             <div class="brand">
-                <a href="index.html"><img src="assets/images/logo.png"></a>
+                <a href=""><img src="assets/images/logo.png"></a>
             </div>
-            <button class="show-menu">
-                <i class="fa fa-bars"></i>
+            <button class="show-menu" id="show_menu_btn" onclick="shownav()">
+                <i class="fa fa-bars" id="show_menu_icon"></i>
             </button>
+            
             <div class="navbar-body">
                 <ul class="navbar-elements">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="blogs.html" class="link">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="link">About Me</a>
+                        <a href="#about" class="link">About Me</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="link">Skills</a>
+                        <a href="#skills" class="link">Skills</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <i class="fa fa-gears"></i>
-                        <a href="index.html" class="link">Projects</a>
+                        <a href="#projects" class="link">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="link">Contact Me</a>
+                        <a href="#contact" class="link">Contact Me</a>
                     </li>
                 </ul>
             </div>
             <div class="action">
                 <a href="signin.html" class="btn-default">Sign In</a>
             </div>
+        </div>
+        <div class="mobile-menu" id="sidenav">
+            <ul class="navbar-elements">
+                <li class="nav-item">
+                    <a href="blogs.html" class="link">Blogs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="link">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="link">Skills</a>
+                </li>
+                <li class="nav-item active">
+                    
+                    <a href="#projects" class="link"><i class="fa fa-gears"></i>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="link">Contact Me</a>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="blogs-container">
@@ -173,5 +194,6 @@
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
