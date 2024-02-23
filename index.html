@@ -118,7 +118,20 @@
         </div>
         <div class="projects-column">
             <div class="slider">
-                <i class="fa fa-arrow-left"></i>
+                <button onclick="prevSlide()"><i class="fa fa-arrow-left"></i></button>
+            </div>
+            <div class="project-card">
+                <div class="picture">
+                    <img src="assets/images/projects/project1.png">
+                </div>
+                <div class="description">
+                    <p>Made a social media manager template using HTML 5, CSS and JS.
+                    </p>
+                </div>
+                <div class="link">
+                    <a href="">Learn More</a>
+                    <i class="fa fa-long-arrow-right"></i>
+                </div>
             </div>
             <div class="project-card">
                 <div class="picture">
@@ -160,7 +173,7 @@
                 </div>
             </div>
             <div class="slider">
-                <i class="fa fa-arrow-right"></i>
+                <i class="fa fa-arrow-right" onclick="nextSlide()"></i>
             </div>
         </div>
     </div>
@@ -174,12 +187,14 @@
         </div>
         <div class="contact-column-2">
             <!-- <div class="form-div">                     -->
-                <form action="">
+                <form action="" id="contactForm">
                     <div class="input-group">
-                        <input type="text" placeholder="Enter Email Address">
+                        <input type="text" placeholder="Enter Email Address" id="email">
+                        <div id="emailError" class="error-message"></div>
                     </div>
                     <div class="input-group">
-                        <textarea placeholder="Enter message"></textarea>
+                        <textarea placeholder="Enter message" id="message"></textarea>
+                        <div id="messageError" class="error-message"></div>
                     </div>
                     <div class="input-group">
                         <button>Send message <img src="assets/icons/paperplane.png"></button>
@@ -205,5 +220,54 @@
             </div>
         </div>
     </div>
+    <script src="slider.js"></script>
+    <script>
+            var isValid = true;
+            document.getElementById('email').addEventListener('input', function() {
+                var emailInput = this.value.trim();
+                var emailError = document.getElementById('emailError');
+
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (emailRegex.test(emailInput)) {
+                    emailError.textContent = '';
+                    emailError.style.display = 'none';
+                    isValid = true;
+                }
+                else if(emailInput === ''){
+                    emailError.textContent = 'Email is blank';
+                    emailError.style.display = 'block';
+                    isValid = false;
+                }
+                else {
+                    emailError.textContent = 'Invalid email format';
+                    emailError.style.display = 'block';
+                    isValid = false;
+                }
+            });
+            
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            emailInput = document.getElementById('email').value;
+            messageInput = document.getElementById('message').value;
+            var messageError = document.getElementById('messageError');
+            if(!isValid){
+                emailError.textContent = 'Invalid email format';
+                emailError.style.display = 'block';
+                event.preventDefault();
+            }
+            if(emailInput === ''){
+                emailError.textContent = 'Email is blank';
+                emailError.style.display = 'block';
+                event.preventDefault();
+            }
+            if(messageInput === ''){
+                messageError.textContent = 'Message is empty';
+                event.preventDefault();
+            }
+        });
+
+
+    </script>
 </body>
 </html>

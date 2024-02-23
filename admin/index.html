@@ -8,41 +8,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <title>Admin</title>
+    <script src="https://cdn.tiny.cloud/1/9lf84e7ni5cgo1gbhivilb25yw5utapttq00d1kk3r5eg539/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <title>Add Blog</title>
 </head>
 <body>
     <div class="main">
-        <div class="sidenav">
-            <div class="brand">
-                <a href="index.html"><img src="../assets/images/logo.png"></a>
-            </div>
-            <div class="menu">
-                <div class="menu-item active">
-                    <div class="nav-item">
-                        <i class="fa fa-home"></i>
-                        <a href="">Dashboard</a>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="nav-item">
-                        <i class="fa fa-home"></i>
-                        <a href="">Blogs</a>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="nav-item">
-                        <i class="fa fa-home"></i>
-                        <a href="">Comments</a>
-                    </div>
-                </div>
-            </div>
+        <div class="sidenav" id="sidenav">
+            <!-- Sidenav here -->
         </div>
         <div class="right">
-            <div class="header">
-                <button class="show-menu">
-                    <i class="fa fa-bars"></i>
+            <div id="header" class="header">
+                <button class="show-menu" id="show_menu_btn" onclick="shownav()">
+                    <i class="fa fa-bars" id="show_menu_icon"></i>
                 </button>
             </div>
+                <!-- Header content here -->
             <div class="content">
                 <div class="stats">
                     <div class="card">
@@ -73,9 +53,12 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
     
+    <script src="contentloader.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
