@@ -16,9 +16,10 @@
             <div class="brand">
                 <a href=""><img src="assets/images/logo.png"></a>
             </div>
-            <button class="show-menu">
-                <i class="fa fa-bars"></i>
+            <button class="show-menu" id="show_menu_btn" onclick="shownav()">
+                <i class="fa fa-bars" id="show_menu_icon"></i>
             </button>
+            
             <div class="navbar-body">
                 <ul class="navbar-elements">
                     <li class="nav-item">
@@ -42,6 +43,26 @@
             <div class="action">
                 <a href="signin.html" class="btn-default">Sign In</a>
             </div>
+        </div>
+        <div class="mobile-menu" id="sidenav">
+            <ul class="navbar-elements">
+                <li class="nav-item">
+                    <a href="blogs.html" class="link">Blogs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="link">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="link">Skills</a>
+                </li>
+                <li class="nav-item active">
+                    
+                    <a href="#projects" class="link"><i class="fa fa-gears"></i>Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="link">Contact Me</a>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="section-title">
@@ -216,58 +237,10 @@
             </div>
             <div class="social">
                 <p>More projects I have worked on</p>
-                <i class="fa fa-github"></i> <span>@ <a href="">innox123</a> on github</span>
+                <i class="fa fa-github"></i> <span>@<a href="https://github.com/innox123" target="_blank">innox123</a> on github</span>
             </div>
         </div>
     </div>
-    <script src="slider.js"></script>
-    <script>
-            var isValid = true;
-            document.getElementById('email').addEventListener('input', function() {
-                var emailInput = this.value.trim();
-                var emailError = document.getElementById('emailError');
-
-                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                if (emailRegex.test(emailInput)) {
-                    emailError.textContent = '';
-                    emailError.style.display = 'none';
-                    isValid = true;
-                }
-                else if(emailInput === ''){
-                    emailError.textContent = 'Email is blank';
-                    emailError.style.display = 'block';
-                    isValid = false;
-                }
-                else {
-                    emailError.textContent = 'Invalid email format';
-                    emailError.style.display = 'block';
-                    isValid = false;
-                }
-            });
-            
-
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            emailInput = document.getElementById('email').value;
-            messageInput = document.getElementById('message').value;
-            var messageError = document.getElementById('messageError');
-            if(!isValid){
-                emailError.textContent = 'Invalid email format';
-                emailError.style.display = 'block';
-                event.preventDefault();
-            }
-            if(emailInput === ''){
-                emailError.textContent = 'Email is blank';
-                emailError.style.display = 'block';
-                event.preventDefault();
-            }
-            if(messageInput === ''){
-                messageError.textContent = 'Message is empty';
-                event.preventDefault();
-            }
-        });
-
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

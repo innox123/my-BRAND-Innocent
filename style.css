@@ -90,6 +90,29 @@ button:hover{
 .navbar .container .navbar-body .navbar-elements .nav-item a{
     text-decoration: none;
 }
+
+
+/* Mobile */
+.mobile-menu{
+    display: none;
+    padding: 30px;
+    /* height: 10px; */
+    background-color:#343d68;
+}
+.mobile-menu .navbar-elements{
+    list-style-type: none;
+    font-size: 20px;
+}
+.mobile-menu .navbar-elements .nav-item a{
+    text-decoration: none;
+}
+.mobile-menu .navbar-elements .nav-item a{
+    color: white;
+}
+.mobile-menu .navbar-elements .nav-item a:hover{
+    color: #E84949;
+}
+
 /* 
   End Navbar
   ================================================

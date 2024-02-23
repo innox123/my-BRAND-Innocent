@@ -1,22 +1,3 @@
-// const show_menu = document.getElementById('show_menu');
-// const show_menu_icon = document.getElementById('show_menu_icon');
-// const sidenav = document.getElementById('sidenav');
-
-// if (show_menu==''){
-//     // Closing sidenav
-//     const close_menu = document.getElementById('close_menu');
-//     close_menu.addEventListener('click', function(){
-//         show_menu.style.display='none';
-//     });
-// }
-// else{
-//     show_menu.addEventListener('click', function(){
-//         sidenav.style.display='block';
-//         show_menu_icon.setAttribute('class', 'fa fa-close');
-//         show_menu.setAttribute("id", "close_menu")
-//     });
-// }
-
 const sidenav = document.getElementById('sidenav');
 const show_menu_btn = document.getElementById('show_menu_btn');
 const show_menu_icon = document.getElementById('show_menu_icon');
