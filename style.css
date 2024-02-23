@@ -392,13 +392,16 @@ button:hover{
     margin: 15px;
 }
 .signin-content .column-2{
-    background:rgba(255, 255, 255, 0.5) url('assets/images/profile.jpeg');
+    background-image:url('assets/images/profile.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 0;
+    /* background-position: 50% 0; */
+    /* filter: blur(8px); */
+    /* -webkit-filter: blur(8px); */
+
     width: 80%;
     float: inline-end;
-    height: 650px;
+    height: 100vh;
     /* opacity: 0.6; */
     display: flex;
     align-items: center;
