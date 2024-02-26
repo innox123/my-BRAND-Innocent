@@ -207,7 +207,15 @@ button:hover{
     background-color: #343d68;
     /* padding: 25px; */
     margin-bottom: 30px;
-    padding: 50px
+    padding: 50px;
+    
+}
+.projects-section .projects-container{
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    height: 500px;
+    overflow-y: hidden;
 }
 
 .projects-section .projects-title{
@@ -221,9 +229,10 @@ button:hover{
 
 .projects-section .projects-column{
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
-    /* position: absolute; */
+    /* height: 500px; */
+    /* overflow-y: hidden; */
 }
 .projects-section .projects-column .slider i{
     color: #FFFFFF;
@@ -238,7 +247,20 @@ button:hover{
     width: 381px;
     align-items: center;
     padding-bottom: 12px;
+    margin-bottom: 40px;
+    /* height: 420px; */
 }
+.projects-section .projects-container{
+    position: relative;    
+}
+.projects-section .projects-container .view-more{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    align-self: center;
+    bottom: 0;
+}
+
 .projects-section .projects-column .project-card .picture{
     margin-bottom: 19px;
 }
