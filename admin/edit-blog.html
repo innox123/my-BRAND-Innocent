@@ -25,7 +25,7 @@
                 <!-- Header content here -->
             <div class="content">
                 <!-- Main Content here -->
-                <h1>Add Blog</h1>
+                <h1>Edit Blog</h1>
                 <div class="form-div">
                     <form action="" method="post" id="blog-form">
                         <div class="input-group">
@@ -63,82 +63,54 @@
           ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
         });
 
+
+
+
         // Local Storage
-        // function addBlogs(blogString){
-        //     for (var i=1; i<=25; i++){
-        //         console.log(localStorage.length);
-        //         if (localStorage.getItem(i) === null){
+        var blogArr = JSON.parse(localStorage.getItem("blogs")) || [];
+        function addBlogs(blogString){
+            for (var i=1; i<=25; i++){
+                console.log(localStorage.length);
+                if (localStorage.getItem(i) === null){
                     
-        //             localStorage.setItem(i, blogString);
-        //             console.log('Added');
-        //             break;
-        //         }
-        //         else{
-        //             i++;
-        //             console.log('Index exists'+i);
-        //         }
-        //     }
-        // }
+                    localStorage.setItem(i, blogString);
+                    console.log('Added');
+                    break;
+                }
+                else{
+                    i++;
+                    console.log('Index exists'+i);
+                }
+            }
+        }
 
         
         var blogData;
         document.getElementById("blog-form").addEventListener("submit", function(event){
             event.preventDefault();
             var dict = {};
-            var blogArr = JSON.parse(localStorage.getItem("blogs")) || [];
-
             var title = document.getElementById("title").value;
             var textContent = tinymce.get('content').getContent();
             dict['title'] = title;
             dict['content'] = textContent;
-
-            // var input = document.getElementById("picture");
-
-
-
-
-            var input = document.getElementById('picture');
-
-            // Check if files are selected
-            if ('files' in input && input.files.length > 0) {
-                var file = input.files[0];
-                
-                // Read the file as a Data URL
-                var reader = new FileReader();
-                reader.onload = function(event) {
-                    var imageData = event.target.result;
-                    
-                    // Save the image data to local storage
-                    // localStorage.setItem('savedImage', imageData);
-                    dict['picture'] = imageData;
-                    
-                    // console.log(dict);
-                    console.log('Image saved to local storage.');
-                };
-                reader.readAsDataURL(file);
-            } else {
-                console.error('No file selected.');
-            }
-
-            blogArr.unshift(dict);
-
-            // var blogString = JSON.stringify(dict);
-            // addBlogs(blogString);
-            localStorage.setItem('blogs', JSON.stringify(blogArr));
-
-
+            var input = document.getElementById("picture");
+            var blogString = JSON.stringify(dict);
+            addBlogs(blogString);
         });
-        console.log(localStorage);
-        // localStorage.clear();
-        // if (Object.keys(localStorage).length < 3){
 
-        // };
-        // var retrievedDict = localStorage.getItem(1);
-        // blogData = JSON.parse(retrievedDict);
-        // console.log(blogData.title)
-        // console.log(blogData.content)
-        // console.log(blogsDictionary.title);
-        // localStorage.clear();
+
+        // Set Values to the form
+        var urlParams = new URLSearchParams(window.location.search);
+        var id = urlParams.get('id');
+        var blogData = blogArr[id];;
+        var title = blogData.title;
+        var content = blogData.content;
+        var picture = blogData.picture;
+
+        var heading = document.getElementById('title');
+        var blog_content = document.getElementById('content');
+        heading.value = title;
+        blog_content.value = content;
       </script>
 </body>
 </html>
