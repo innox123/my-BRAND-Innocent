@@ -42,29 +42,7 @@
                           <th>Date</th>
                           <th>Action</th>
                         </tr>
-                        <tr id="tableRow">
-                          <td id="td1">
-                            <img src="../assets/images/blogs/blog1-big.png">
-                          </td>
-                          <td id="td1">
-                            10 Tips To Use Screen
-                          </td >
-                          <td>
-                            453
-                          </td>
-                          <td>
-                            453
-                          </td>
-                          <td>
-                            12/12/2023
-                          </td>
-                          <td>
-                            <div class="blog-actions">
-                                <a id="edit"><i class="fa fa-edit"></i></a>
-                                <a onclick="delete_btn()"><i class="fa fa-trash" id="delete"></i></a>
-                            </div>
-                          </td>
-                        </tr>
+                        
                         
                         
                         
@@ -95,35 +73,43 @@
           // Displaying from localstorage
           var tableBody = document.getElementById('myTable').getElementsByTagName('tbody')[0];
           var blogArr = JSON.parse(localStorage.getItem("blogs")) || [];
-          for (var i=0; i<=blogArr.length-1; i++){
-            // break;
-            // console.log(i);
-            // console.log(localStorage.length);
-            // console.log(localStorage.length)
-            // if (localStorage.getItem(i) !== null){
-              // var retrievedDict = localStorage.getItem(i);
-              // console.log(i);
-              // var blogData = JSON.parse(retrievedDict);
-              // console.log(blogData);
-              console.log(blogArr[i]);
+          console.log(blogArr);
+          for (var i=0; i<blogArr.length; i++){
+              console.log(i);
               var title = blogArr[i].title;
-              var content = blogArr[i].content;
-              // var picture = blogArr[i].picture;
-              var tableRow = document.getElementById('tableRow');
-              var clonedRow = tableRow.cloneNode(true);
-              var cells = clonedRow.getElementsByTagName('td');
-              // cells[0].textContent = picture;
-              cells[1].textContent = title;
-              cells[2].textContent = content;
-              tableBody.appendChild(clonedRow);
-
-              var edit = document.getElementById('edit');
-              edit.setAttribute('href', 'edit-blog.html?id='+i);
-            // }
+              var content = blogArr[i]['content'];
+              var picture = blogArr[i].picture;
+              var link = "edit-blog.html?id="+i;
+              var blogRow = `
+                <td id="td1">
+                  <img src="${picture}">
+                </td>
+                <td id="td1">
+                  ${title}
+                </td >
+                <td>
+                  453
+                </td>
+                <td>
+                  453
+                </td>
+                <td>
+                  12/12/2023
+                </td>
+                <td>
+                  <div class="blog-actions">
+                      <a id="edit" href=${link}><i class="fa fa-edit"></i></a>
+                      <a onclick="delete_btn()"><i class="fa fa-trash" id="delete"></i></a>
+                  </div>
+                </td>
+              `
+              var rowElement = document.createElement('tr');
+              rowElement.innerHTML = blogRow;
+              tableBody.appendChild(rowElement);
+              // var edit = document.getElementById('edit');
+              // edit.setAttribute('href', 'edit-blog.html?id='+i);
           }
-          // console.log(localStorage.getItem('tinymce-custom-colors-forecolor'));
           // console.log(localStorage);
-          // localStorage.clear();
         </script> 
     </body>
     </html>

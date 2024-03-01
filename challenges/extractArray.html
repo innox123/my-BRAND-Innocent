@@ -9,42 +9,39 @@
     
     <script>
         var inputArray = ["Patrick wyne, 30, male", "lil wyne, 32, male","Eric mimi, 21, female","Dodos deck, 21, male","Alian Dwine, 22, male","Patrick wyne, 33, male","Patrick Lumumba, 10, trans","Patrick Romeo, 40, non-binary"];
-        // console.log(inputArray.length)
-        var gender = [];
-        var genderContent = {};
-        var genderArray = [];
+        var outputArray = [];
         var nameDetails = {};
+
+        // Genders
+        var gender = [];
+        var maleArray = [];
+        var femaleArray = [];
+        var otherGendersArray = [];
         for (var i=0; i<inputArray.length; i++){
             gender.push(inputArray[i].split(", ")[2]);
         }
         var uniqueGender = [...new Set(gender)]
 
-        for (var i=0; i<uniqueGender.length; i++){
             for (var j=0; j<inputArray.length; j++){
                     nameDetails[inputArray[j].split(", ")[0].split(" ")[0]] = {'second-name': inputArray[j].split(", ")[0].split(" ")[1], 'age': inputArray[j].split(", ")[1]};
-                    // console.log(nameDetails);
-                if (uniqueGender[i] == inputArray[j].split(", ")[2]){
-                    genderArray.push(nameDetails);
-                    // console.log(genderArray);
+                    if (inputArray[j].split(", ")[2] === 'male'){
+                        maleArray.push(inputArray[j]);
+                        outputArray['male'] = maleArray;
 
-                    // if(genderContent[uniqueGender[i]] !== null){
-                    //     genderContent[uniqueGender[i]] = genderContent[uniqueGender[i]];
-                    // }
-                    // else{
-                    //     genderContent[uniqueGender[i]] = genderArray;
-                    // }
-                    // // gender[uniqueGender[i]] = genderArray;
-                    // break;
-                }
+                    }
+                    else if (inputArray[j].split(", ")[2] === 'female'){
+                        femaleArray.push(inputArray[j]);
+                        outputArray['female'] = femaleArray;
+                    }
+                    else{
+                        otherGendersArray.push(inputArray[j]);
+                        outputArray['others'] = otherGendersArray;
+                    }
             }
-            // nameDetails[inputArray[j].split(", ")[0].split(" ")[0]] = details;
-        }
 
-        for (var i=0; i<inputArray.length; i++){
-            
-        }
+        console.log(outputArray);
+        console.log(outputArray['male'].length)
 
-        // console.log(nameDetails)
     </script>
 </body>
 </html>

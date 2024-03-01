@@ -72,7 +72,7 @@
     <div class="blogs-container">
         <div class="main">
             <div id="cardContainer">
-                <div class="blog-card" id="myCard">
+                <!-- <div class="blog-card" id="myCard">
                     <div class="blog-picture">
                         <img src="assets/images/blogs/blog1-big.png">
                     </div>
@@ -96,7 +96,7 @@
                         </div>
                         
                     </div>
-                </div>
+                </div> -->
             </div>
             
             
@@ -167,35 +167,46 @@
         // Displaying from localstorage
         var cardContainer = document.getElementById('cardContainer');
         var blogArr = JSON.parse(localStorage.getItem("blogs")) || [];
-        for (var i=0; i<=blogArr.length-1; i++){
-            // break;
-            console.log(i);
-            // console.log(localStorage.length);
-            // console.log(localStorage.length)
-            // if (localStorage.getItem(i) !== null){
-            //   var retrievedDict = blogArr[i];
-              console.log(i);
-              var blogData = blogArr[i];
-              console.log(blogData);
-              var title = blogData['title'];
-              var content = blogData.content;
-              var picture = blogData.picture;
-            //   var tableRow = document.getElementById('tableRow');
-                var cardElement = document.getElementById('myCard');
-                // cardElement.style.display = 'none';
+        console.log(blogArr);
+        for (var i=0; i<blogArr.length; i++){
+              var title = blogArr[i].title;
+              var content = blogArr[i]['content'];
+              var picture = blogArr[i].picture;
+              var link = "single-blog.html?id="+i;
 
-              var clonedCard = cardElement.cloneNode(true);
-              var heading = document.getElementById('heading');
-              var blog_content = document.getElementById('content');
-              var read_more = document.getElementById('read_more');
-              read_more.setAttribute('href', 'single-blog.html?id='+i)
-              heading.textContent = title;
-              blog_content.innerHTML = content;
-            //   cells[0].textContent = picture;
-            //   cells[1].textContent = title;
-            //   cells[2].textContent = content;
-            //   console.log(picture);
-              cardContainer.appendChild(clonedCard);
+            var cardElement = `
+            <div class="blog-card" id="myCard">
+                <div class="blog-picture">
+                    <img src="${picture}">
+                </div>
+                <div class="description">
+                    <h2><a href=${link} id="heading">${title}</a></h2>
+                    <div class="text">
+                        <p id="content">
+                            ${content}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+
+                        <div class="info">
+                            <span><i class="fa fa-book"></i>&nbsp;3 pages</span>
+                            <span><i class="fa fa-calendar"></i>&nbsp;12/12/2023</span>
+                        </div>
+                        <div class="info">
+                            <span><i class="fa fa-heart"></i>&nbsp;12</span>
+                            <span><i class="fa fa-comments"></i>&nbsp;12</span>
+                            <a id="read_more" href=${link}>Read More <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            `
+
+            var createdCardElement = document.createElement('div');
+            createdCardElement.setAttribute('class', 'blog-card');
+            createdCardElement.innerHTML = cardElement;
+            cardContainer.appendChild(createdCardElement);
             // }
           }
     </script>

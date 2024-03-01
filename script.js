@@ -22,51 +22,7 @@ if (window.innerWidth > 991) {
 });
 
 
-// Contact form Validation
-var isValid = true;
-document.getElementById('email').addEventListener('input', function() {
-    var emailInput = this.value.trim();
-    var emailError = document.getElementById('emailError');
 
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (emailRegex.test(emailInput)) {
-        emailError.textContent = '';
-        emailError.style.display = 'none';
-        isValid = true;
-    }
-    else if(emailInput === ''){
-        emailError.textContent = 'Email is blank';
-        emailError.style.display = 'block';
-        isValid = false;
-    }
-    else {
-        emailError.textContent = 'Invalid email format';
-        emailError.style.display = 'block';
-        isValid = false;
-    }
-});
-
-
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-emailInput = document.getElementById('email').value;
-messageInput = document.getElementById('message').value;
-var messageError = document.getElementById('messageError');
-if(!isValid){
-    emailError.textContent = 'Invalid email format';
-    emailError.style.display = 'block';
-    event.preventDefault();
-}
-if(emailInput === ''){
-    emailError.textContent = 'Email is blank';
-    emailError.style.display = 'block';
-    event.preventDefault();
-}
-if(messageInput === ''){
-    messageError.textContent = 'Message is empty';
-    event.preventDefault();
-}
-});
 
 function viewMore(){
     var section = document.getElementById('projects_container');

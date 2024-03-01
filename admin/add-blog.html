@@ -89,56 +89,63 @@
 
             var title = document.getElementById("title").value;
             var textContent = tinymce.get('content').getContent();
-            dict['title'] = title;
-            dict['content'] = textContent;
-
-            // var input = document.getElementById("picture");
 
 
 
-
-            var input = document.getElementById('picture');
-
-            // Check if files are selected
-            if ('files' in input && input.files.length > 0) {
-                var file = input.files[0];
-                
-                // Read the file as a Data URL
-                var reader = new FileReader();
-                reader.onload = function(event) {
-                    var imageData = event.target.result;
+        //     var input = document.getElementById('picture');
+        //         const image = document.getElementById("picture").files[0]
+        //         var reader = new FileReader();
+        //         reader.onload = () => {
+        //             var imageData = reader.result;
+        //             dict = {
+        //                 title: title,
+        //                 content: textContent,
+        //                 picture: imageData
+        //             }
                     
-                    // Save the image data to local storage
-                    // localStorage.setItem('savedImage', imageData);
-                    dict['picture'] = imageData;
-                    
-                    // console.log(dict);
-                    console.log('Image saved to local storage.');
-                };
-                reader.readAsDataURL(file);
-            } else {
-                console.error('No file selected.');
-            }
+        //             console.log('Image saved to local storage.');
+        //         };
+        //         reader.readAsDataURL(image);
 
-            blogArr.unshift(dict);
+        //     blogArr.unshift(dict);
 
-            // var blogString = JSON.stringify(dict);
-            // addBlogs(blogString);
+        //     localStorage.setItem('blogs', JSON.stringify(blogArr));
+
+
+
+
+
+
+
+
+        // Capture picture (file)
+        var pictureFile = document.getElementById('picture').files[0];
+
+        // Convert picture to Base64
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var pictureBase64 = event.target.result;
+
+            // Store data in localStorage
+            var blogEntry = {
+                title: title,
+                content: textContent,
+                picture: pictureBase64,
+                comments: []
+            };
+            blogArr.unshift(blogEntry);
             localStorage.setItem('blogs', JSON.stringify(blogArr));
 
+            console.log('Blog entry added to localStorage.');
+        };
+        reader.readAsDataURL(pictureFile);
+        window.location.href = './blogs.html'
 
         });
-        console.log(localStorage);
-        // localStorage.clear();
-        // if (Object.keys(localStorage).length < 3){
 
-        // };
-        // var retrievedDict = localStorage.getItem(1);
-        // blogData = JSON.parse(retrievedDict);
-        // console.log(blogData.title)
-        // console.log(blogData.content)
-        // console.log(blogsDictionary.title);
-        // localStorage.clear();
+        console.log(localStorage);
+        localStorage.clear();
+
       </script>
 </body>
 </html>

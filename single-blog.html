@@ -68,7 +68,7 @@
     <div class="blogs-container">
         <div class="main">
             <div class="picture">
-                <img src="assets/images/blogs-background.png">
+                <img id="img">
             </div>
             <div class="title">
                 <h2 id="heading"></h2>
@@ -81,32 +81,9 @@
                 <div class="title">
                     <h3>Comments 2</h3>
                 </div>
-                <div class="comment">
-                    <p>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, 
-                        or randomised words which don't look even slightly believable. 
-                        If you are going to use a passage
-                    </p>
-                    <div class="icons">
-                        <span><i class="fa fa-user"></i>Eric</span>
-                        <span><i class="fa fa-heart"></i>123</span>
-                        <span><i class="fa fa-reply"></i><a href="">Reply</a></span>
-                        <span> <h5>14 minutes ago</h5></span>
-                    </div>
+                <div id="commentSection">
                 </div>
-                <div class="comment">
-                    <p>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, 
-                        or randomised words which don't look even slightly believable. 
-                        If you are going to use a passage
-                    </p>
-                    <div class="icons">
-                        <span><i class="fa fa-user"></i>Eric</span>
-                        <span><i class="fa fa-heart"></i>123</span>
-                        <span><i class="fa fa-reply"></i><a href="">Reply</a></span>
-                        <span> <h5>2 days ago</h5></span>
-                    </div>
-                </div>
+                
                 <div class="title">
                     <h3>Add Comment</h3>
                 </div>
@@ -116,6 +93,9 @@
                             <span>Comment</span>
                             <span>Respect Terms and Conditions</span>
                         </div>
+                        Username
+                        <input type="text" id="username">
+                        Comment
                         <textarea name="" id="comment" cols="30" rows="10"></textarea>
                         <button class="btn-default">POST COMMENT</button>
                     </form>
@@ -170,15 +150,16 @@
         var urlParams = new URLSearchParams(window.location.search);
         var id = urlParams.get('id');
         var blogArr = JSON.parse(localStorage.getItem("blogs")) || [];
-        var retrievedDict = localStorage.getItem(id);
         var blogData = blogArr[id];
-        console.log(blogData);
         var title = blogData['title'];
         var content = blogData.content;
         var picture = blogData.picture;
-
+        var pictureSrc = "${picture}";
         var heading = document.getElementById('heading');
         var blog_content = document.getElementById('content');
+        var image = document.getElementById('img');
+        image.src=picture;
+
         heading.textContent = title;
         blog_content.innerHTML = content;
 
@@ -186,52 +167,56 @@
         document.getElementById('commentForm').addEventListener('submit', function(event){
             event.preventDefault();
 
+            var username = document.getElementById('username').value;
             var comment = document.getElementById('comment').value;
-            var blogComments = [];
+            var blogComments = {
+                username: username,
+                comment: comment
+            };
+            var comments =  blogData['comments'];
+            comments.push(blogComments);
+            blogData['comments'] = comments;
+            blogArr[id] = blogData;
+            localStorage.setItem('blogs', JSON.stringify(blogArr));
+            // Comment added
+
+            // Reload Page
+            setTimeout(function() {
+                location.reload();
+            }, 3000);
 
         });
+        console.log(blogData['comments'])
 
-    // Single image
-    // document.getElementById("formId").addEventListener("submit", (event) => { event.preventDefault(}; const articleArr = JSON.parse(localStorage.getItem("articles")) || [];
+        for (var i=0; i<blogData['comments'].length; i++){
+            var comentParagraph = blogData['comments'][i].comment;
+            var user = blogData['comments'][i].username;
+            var commentDiv = `
+            <div class="comment">
+                <p>
+                    ${comentParagraph}
+                </p>
+                <div class="icons">
+                    <span><i class="fa fa-user"></i>${user}</span>
+                    <span><i class="fa fa-heart"></i>123</span>
+                    <span><i class="fa fa-reply"></i><a href="">Reply</a></span>
+                    <span> <h5>14 minutes ago</h5></span>
+                </div>
+            </div>
+            `
+            var commentElement = document.createElement('div');
+            commentElement.setAttribute('class', 'comment')
+            commentElement.innerHTML = commentDiv;
+            var commentSection = document.getElementById('commentSection');
+            commentSection.appendChild(commentElement);
 
-    // const reader = new FileReader();
+            
 
-    // reader.onload = () => {
+        }
 
-    //   const myBlogImage = reader.result;
-
-    //   const blogData = {
-    //     blogImage: myBlogImage,
-    //     blogTitle: title,
-    //     publishedDate: publishDate,
-    //     blogDescription: content,
-    //   };
-
-    // articleArr.unshift(blogData);
-
-    // localStorage.s)
-    // const articleArr = JSON.parse(localStorage.getItem("articles")) || [];
-
-    // const reader = new FileReader();
-
-    // reader.onload = () => {
-
-    //   const myBlogImage = reader.result;
-
-    //   const blogData = {
-    //     blogImage: myBlogImage,
-    //     blogTitle: title,
-    //     publishedDate: publishDate,
-    //     blogDescription: content,
-    //   };
-
-    // articleArr.unshift(blogData);
-
-    // localStorage.setItem("articles", JSON.stringify(articleArr));
-
-    // window.location.href = "../index.html";
-    // reader.readAsDataURL(image);
-    // const image = document.getElementById("imageUpload").files[0];
+        
+        // var comments =  blogData['comments'] || [];
+        
     </script>
 </body>
 </html>
